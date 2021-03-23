@@ -42,7 +42,7 @@
   z-index:-2
 }
 .header a{
-  color:#eee
+  color: #242424;
 }
 
 .sides, .info{
@@ -51,22 +51,24 @@
 }
 .info{
   width:100%;
+  position: absolute;
   padding:15% 10% 0 10%;
   text-align:center;
-  text-shadow:0 2px 3px rgba(0,0,0,0.2)
+  text-shadow:0 2px 3px rgba(0,0,0,0.2);
+  color: #242424;
 }
 .author{
   display:inline-block;
   width:50px;
   height:50px;
   border-radius:50%;
-  background:url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
+  background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHa9mT1rvw7y0gGLTNnVDs2n7z4s0Av8yBlg&usqp=CAU) center no-repeat;
   background-size:cover;
   box-shadow:0 2px 3px rgba(0,0,0,0.3);
   margin-bottom:3px
 }
 .info h4, .meta{
-  font-size:0.7em
+  font-size:0.9em
 }
 .meta{
   font-style:italic;
@@ -94,3 +96,12 @@
 }
 
 .btn.twtr:after{content:"\1F426";padding-left:5px}
+
+.video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video video {width: 100%;}
