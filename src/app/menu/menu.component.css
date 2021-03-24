@@ -88,7 +88,11 @@
 	}
 
 	.menu ul.active {
-		display:none;
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		-o-transition: opacity 0.3s ease-in-out;
+		-moz-transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.3s ease-in-out;
 	}
 
 	.menu ul {
@@ -102,6 +106,11 @@
 		border-radius:3px;
 		background:#242424;
         z-index: 1;
+		opacity: 1;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		-o-transition: opacity 0.3s ease-in-out;
+		-moz-transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.3s ease-in-out;
 	}
 
 	.menu ul:after {

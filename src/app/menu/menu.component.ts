@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   goTo(id: string):void {
     const elementList = document.querySelectorAll(id);
     const element = elementList[0] as HTMLElement;
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ behavior: 'smooth'});
 }
 
   constructor() { }
