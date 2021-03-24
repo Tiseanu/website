@@ -2,26 +2,59 @@
 <small>Enter message (optional) and click button "Send"</small>
 <div class="wrapper centered">
   <article class="letter">
-    <div class="side">
-      <h1>Contact Me</h1>
-      <p>
-        <textarea placeholder="Your message"></textarea>
-      </p>
-    </div>
-    <div class="side side2">
-      <p>
-        <input type="text" placeholder="Your name" >
-      </p>
-      <p>
-        <input type="email" placeholder="Your email" >
-      </p>
-      <p>
-        <button id="sendLetter">Send</button>
-      </p>
-    </div>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+      <div class="side">
+        <h1>Contact Me</h1>
+        <div class="form-group">
+          <textarea name="message" ngModel #message ="ngModel" required minlength="10" placeholder="Your message" class="form-control"></textarea>
+
+          <div *ngIf="message.touched" class="err">
+            <p *ngIf="message.errors?.required">Message is Required!!!</p>
+            <p *ngIf="message.errors?.minlength">Message minimum 10 characters are required!!!</p>
+            <p *ngIf="message.errors?.maxlength">Message max length is 10!!!</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="side side2">
+        <div class="form-group float-right">
+          <input name="urname" ngModel #urname ="ngModel" required minlength="3" maxlength="10" type="text" placeholder="Your name" class="form-control">
+
+          <div *ngIf="urname.touched" class="err">
+            <p *ngIf="urname.errors?.required">First Name is Required!!!</p>
+            <p *ngIf="urname.errors?.minlength">First Name minimum 3 characters are required!!!</p>
+            <p *ngIf="urname.errors?.maxlength">First Name max length is 10!!!</p>
+          </div>
+        
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group float-right">
+          <input name="email" ngModel #email="ngModel"type="email" placeholder="Your email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+
+          <div *ngIf="email.touched" class="err">
+            <p *ngIf="email.errors?.required">Email is a required field!</p>
+            <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="float-right">
+          <button id="sendLetter">Send</button>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="err">
+          <span *ngIf="contactErr; then ok else err"></span>
+          <ng-template #err>Some Fields are empty!</ng-template>
+          <ng-template #ok>Thank you for the message!</ng-template>
+         </div>
+
+      </div>
+      <div class="clearfix"></div>
+  </form>
+  <div class="clearfix"></div>
   </article>
-  <div class="envelope front"></div>
-  <div class="envelope back"></div>
 </div>
-<p class="result-message centered">Thank you for your message</p>
 </div>

@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactusComponent } from './contactus/contactus.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
