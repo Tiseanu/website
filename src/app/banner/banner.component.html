@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" id="topHeader">
     <div class="info">
     <h4><a href="#category">DEVELOPER</a></h4>
         <h1>{{motto | uppercase}}</h1>
@@ -14,8 +14,7 @@
 
 <section class="content" id="about">
   <h2>About Me</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl turpis, porttitor et finibus id, viverra a metus. Praesent non ante sed orci posuere varius quis sit amet dui. Cras molestie magna orci, id gravida dolor molestie in. Duis sollicitudin turpis quis tortor egestas, ut ultrices nisl elementum. Vestibulum sed ipsum eget nulla laoreet cursus in ac sem. Integer a suscipit justo, quis aliquam sapien. Maecenas et tellus nibh. Vivamus tincidunt eros id commodo pellentesque.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl turpis, porttitor et finibus id, viverra a metus. Praesent non ante sed orci posuere varius quis sit amet dui. Cras molestie magna orci, id gravida dolor molestie in. Duis sollicitudin turpis quis tortor egestas, ut ultrices nisl elementum. Vestibulum sed ipsum eget nulla laoreet cursus in ac sem. Integer a suscipit justo, quis aliquam sapien. Maecenas et tellus nibh. Vivamus tincidunt eros id commodo pellentesque.</p>
+  <div [innerHTML]="aboutMe"></div>
   <p align="center"><a href="#" class="btn twtr" target="_b">Follow me on Twitter</a>
   </p>
 </section>
@@ -34,12 +33,35 @@
           <p class="card-text">{{i+1}}. {{item.text}}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" [attr.data-target]="'#popup'+ i">View</button>
+
+              <div class="modal fade" id="popup{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{item.title}} {{i+1}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>{{i+1}}. {{item.text}}</p>
+                      <p>{{item.text}}</p>
+                      <p>{{item.text}}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <small class="text-muted">{{item.time}}</small>
           </div>
         </div>
       </div>
+
     </div>
     
   </div>
